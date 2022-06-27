@@ -7,11 +7,11 @@
     </head>
     <header class="header-app-component">
         <p>Header app component</p>
-        <ul>
+        <!--<ul>
             <li><router-link :to="{ name: 'HomeView' }">Home</router-link></li>
             <li><router-link :to="{ name: 'DashboardView' }">Dashboard </router-link></li>
             <li><router-link :to="{ name: 'CreateView' }">Snapshoot </router-link></li>
-        </ul>
+        </ul>-->
         <div v-if="!cmpUserinfo">
         header-app-component: is not connected
       </div>
