@@ -1,0 +1,54 @@
+<template>
+  <section class="dashboard-view-component section">
+      <!-- Display list of snapshoot -->
+      <ul>
+        <li 
+          class="mb-4 box"
+          v-for="(item, idx) in $store.getters.snapshootlist" 
+          :key="`item-${idx}`"
+        >
+          <BaseImage 
+            :item="item"
+            @onDisplaySnapshoot="$router.push({ name: 'SingleView', params: { id: $event } })"
+          />
+        </li>
+      </ul>
+  </section>
+  <section class="dashboard-view-component section">
+      <!-- 
+        TODO: Display list of albums
+        - Get album list from the store
+        - Generate a loop 'v-for' on album list
+        - Display a child compoenent 'BasePushAlbum.vue':
+          - title
+          - nombers of snapshoots
+          - link to display album
+      -->
+  </section>
+</template>
+
+<script>
+/* 
+  [IMPORT] Modules/components
+*/
+  import BaseImage from '../components/base/BaseImage.vue';
+//
+
+/* 
+  [CTRL] App.vue
+  Define compoenent controller
+*/
+  export default {
+    name: 'DashboardView',
+
+    /* 
+      [VUE] Component
+      Used to inject child components
+    */
+      components: {
+        BaseImage
+      }
+    //
+  }
+//
+</script>
