@@ -6,28 +6,19 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     </head>
     <header class="header-app-component">
-        <p>Header app component</p>
-        <!--<ul>
-            <li><router-link :to="{ name: 'HomeView' }">Home</router-link></li>
-            <li><router-link :to="{ name: 'DashboardView' }">Dashboard </router-link></li>
-            <li><router-link :to="{ name: 'CreateView' }">Snapshoot </router-link></li>
-        </ul>-->
-        <div v-if="!cmpUserinfo">
-        header-app-component: is not connected
-      </div>
-      
-      <div v-else >
-        <button 
-          class="button"
-          v-text="`Logout`"
-          @click.prevent="$emit('onLogout', true)"
-       />
+        <div v-if="cmpUserinfo">
+        <ul class="navbar">
+            <li class="navbar-item"><router-link :to="{ name: 'DashboardView' }">Dashboard </router-link></li>
+            <li class="navbar-item"><router-link :to="{ name: 'CreateView' ,params: { type: 'snapshoot' } }">Créer Snapshoot </router-link></li>
+            <li class="navbar-item"><router-link :to="{ name: 'CreateView' ,params: { type: 'album' } }">Créer Album </router-link></li>
+            <li class="navbar-item"><button class="button" v-text="`Logout`" @click.prevent="$emit('onLogout', true)" /></li>
+        </ul>
         <p 
           v-if="cmpSnapshootlist.length"
         >
           Nombre de photos <b>{{cmpSnapshootlist.length}}</b>
         </p>
-      </div>
+        </div>
     </header>
 </template>
 
@@ -64,6 +55,7 @@
       computed: {
         cmpUserinfo: function(){ return this.userinfo },
         cmpSnapshootlist: function(){ return this.snapshootlist },
+        cmpAlbumlist: function(){ return this.Albumlist },
       },
     //
   }

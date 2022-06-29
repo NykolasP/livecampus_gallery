@@ -26,12 +26,6 @@
         @onClick="cmpStep = $event"
       />
     </article>
-    <article 
-      class="box"
-      v-else
-    >
-      <h1 class="is-size-4">Bienvenue {{ $store.getters.userinfo.name }}</h1>
-    </article>
   </section>
 </template>
 
@@ -140,6 +134,7 @@
           else{
             // Use store action
             this.$store.dispatch('loginOperation', event)
+              .then(() => this.$router.push({ name: 'DashboardView' }))
           }
         },
       },

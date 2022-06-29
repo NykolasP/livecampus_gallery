@@ -15,7 +15,7 @@ export default{
 
     // Define getters
     getters: {
-        // Snapshot getters
+        // album getters
         album: (state) => state.album,
         albumlist: (state) => state.albumlist,
         
@@ -26,7 +26,7 @@ export default{
 
     // Define mutation (eq. setters)
     mutations: {
-        // Snapshot mutations
+        // album mutations
         album( state, payload){ state.album = payload.data },
         albumlist( state, payload){ state.albumlist.push(payload.data) },
 

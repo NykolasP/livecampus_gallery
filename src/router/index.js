@@ -16,7 +16,7 @@ const routerPaths = [
     {
         path: '/',
         name: 'HomeView',
-        meta: { authguard: false },
+        meta: { authguard: false, co:'connected' },
         component: () => import('../views/HomeView.vue')
     },
     {

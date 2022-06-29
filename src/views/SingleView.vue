@@ -39,6 +39,7 @@ import { dexieDb } from '@/services/dexie.service'
     data(){
       return {
         cmpSingleItem: null,
+        cmpAlbums:null,
       }
     },
 
@@ -63,9 +64,8 @@ import { dexieDb } from '@/services/dexie.service'
       */
         // Save new snapshot in IndexDB with Dexie.js
         this.cmpSingleItem = await dexieDb.snapshoots.get( +this.$route.params.id );
-        if(!this.cmpSingleItem){
-          this.$router.push({ name: 'DashboardView' })
-        }
+        this.cmpAlbums = await dexieDb.albums.toArray();
+        console.log(this.$store.getters.snapshootlist)
       //
     }
   }
